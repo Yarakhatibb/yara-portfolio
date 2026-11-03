@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yara Khatib — Product Designer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
+<style>
+:root{color-scheme:light;--bg:#fff;--alt:#f7f7f7;--ink:#111;--muted:#444;--lav:#e0e0ff;--lav-ink:#111;--card:#efefef;--line:#e9e9ef;--field:#fff;--fieldline:#d6d6de;--btn:#000;--btnink:#fff;--accent:#b4b4ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media not all{:root:not([data-theme="light"]){--bg:#0f1016;--alt:#171821;--ink:#f3f3f8;--muted:#b9bacb;--lav:#2a2c55;--lav-ink:#f3f3f8;--card:#1f2029;--line:#262736;--field:#171821;--fieldline:#34354a;--btn:#e0e0ff;--btnink:#111;--accent:#8e90ff}}
+:root[data-theme="off"]{--bg:#0f1016;--alt:#171821;--ink:#f3f3f8;--muted:#b9bacb;--lav:#2a2c55;--lav-ink:#f3f3f8;--card:#1f2029;--line:#262736;--field:#171821;--fieldline:#34354a;--btn:#e0e0ff;--btnink:#111;--accent:#8e90ff}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,8vw,120px)}
+nav{display:flex;gap:28px;padding-top:36px;padding-bottom:8px;font-size:14px;font-weight:500}
+nav a,footer a{color:inherit;text-decoration:none}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.hero{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:60px 5% 40px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 72%);mask-image:radial-gradient(ellipse at center,#000 30%,transparent 72%)}
+.hero h1{position:relative;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.25;max-width:760px;margin:0;padding:0 20px}
+.cursor{position:absolute;margin:0 0 -14px 6px;color:var(--accent)}
+.bio{background:var(--alt);padding:72px 0;text-align:center}
+.bio p{margin:0 auto;max-width:880px;font-size:clamp(16px,1.6vw,20px);font-weight:500;line-height:1.6}
+.work{padding:88px 0}
+h2{font-size:24px;font-weight:600;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:28px}
+.chip{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:inherit;font-size:14px;padding:2px 0;cursor:pointer}
+.chip[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.tile{background:var(--lav);border-radius:10px;min-height:300px;display:flex;align-items:flex-end;padding:20px;color:var(--lav-ink);font-weight:500}
+.t1{grid-column:span 4}.t2{grid-column:span 8}.t3,.t4{grid-column:span 6}.t5{grid-column:span 12;min-height:420px}
+.blog{background:var(--alt);padding:72px 0}
+.blog h2{text-align:center;font-weight:400;font-size:20px;max-width:360px;margin:0 auto 32px}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 clamp(20px,5vw,60px) 12px}
+.post{flex:0 0 min(430px,82vw);scroll-snap-align:start;background:var(--card);border-radius:10px;padding:12px 12px 18px}
+.img{height:210px;border-radius:12px}
+.i1{background:radial-gradient(circle at 70% 70%,#e0644d 0,#3b3b8a 25%,#050507 55%)}
+.i2{background:radial-gradient(circle at 20% 30%,#7fb3ff 0,#0b1d4a 20%,#050a1a 60%)}
+.i3{background:radial-gradient(circle at 50% 50%,#9a7bff 0,#1a1440 35%,#06060f 70%)}
+.post p{margin:16px 4px 8px;font-size:16px}.post time{margin:0 4px;font-size:14px;color:var(--muted)}
+.contact{padding:88px 0}
+form{max-width:380px;margin-top:28px;display:grid;gap:18px}
+label{display:grid;gap:6px;font-size:12px}
+input,textarea{font:inherit;font-size:14px;background:var(--field);color:var(--ink);border:1px solid var(--fieldline);border-radius:6px;padding:12px}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cta{background:var(--btn);color:var(--btnink);border:0;border-radius:6px;padding:12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+#ok{display:none;margin-top:20px;font-weight:500}
+footer{background:var(--lav);color:var(--lav-ink);text-align:center;font-size:13px;padding:18px 20px}
+@media (max-width:760px){.t1,.t2,.t3,.t4,.t5{grid-column:span 12;min-height:220px}.hero{min-height:320px}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav aria-label="Main"><a href="#about">About</a><a href="#work">Case studies</a><a href="#contact">Contact</a></nav></header>
+
+<section class="hero" aria-label="Introduction">
+<h1>Hello <span aria-hidden="true">👋</span> it’s Yara, a motivated, curious, product designer<svg class="cursor" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M6 3 L28 18 L17 20 L12 30 Z" fill="currentColor" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></h1>
+</section>
+
+<section class="bio" id="about"><div class="wrap"><p>I’m a Fintech-focused designer with experience creating intuitive user journeys for CFD trading platforms. Skilled in cross-functional collaboration,<br>I deliver products that meet business goals and elevate user experience.<br>I’m seeking a dynamic role to further grow and refine my skills.</p></div></section>
+
+<section class="work" id="work"><div class="wrap">
+<h2>Newly added products!</h2>
+<div class="chips" role="group" aria-label="Filter case studies">
+<button class="chip" aria-pressed="true">Retail banking</button><button class="chip" aria-pressed="false">Mobile banking</button><button class="chip" aria-pressed="false">B2B banking</button><button class="chip" aria-pressed="false">Investment &amp; Wealth</button><button class="chip" aria-pressed="false">VR/AR &amp; AI banking</button>
+</div>
+<div class="grid">
+<div class="tile t1">Case study 01</div><div class="tile t2">Case study 02</div><div class="tile t3">Case study 03</div><div class="tile t4">Case study 04</div><div class="tile t5">Case study 05</div>
+</div></div></section>
+
+<section class="blog"><h2>Check out our latest blog posts on design, product ideas, and more!</h2>
+<div class="rail">
+<article class="post"><div class="img i1"></div><p>Figma ipsum component variant main layer strikethrough arrow.</p><time>November 22, 2025</time></article>
+<article class="post"><div class="img i2"></div><p>Figma ipsum component variant main layer strikethrough arrow.</p><time>November 22, 2025</time></article>
+<article class="post"><div class="img i3"></div><p>Figma ipsum component variant main layer strikethrough arrow.</p><time>November 22, 2025</time></article>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+<h2>Let’s Connect</h2><div style="font-size:14px">Let’s talk about how we can work together.</div>
+<form id="f">
+<label>Full name<input name="n" required autocomplete="name"></label>
+<label>Email address<input name="e" type="email" required autocomplete="email"></label>
+<label>I’m here for<input name="r"></label>
+<label>What we should know<textarea name="m" rows="3"></textarea></label>
+<button class="cta" type="submit">Send message</button>
+</form>
+<div id="ok" role="status">Thank you! Your message is ready, and I’ll be in touch soon.</div>
+</div></section>
+
+<footer>© 2025 Yarakhatib, All Rights Reserved</footer>
+
+<script>
+document.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true')})});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'});
+</script>
+</body>
+</html>
